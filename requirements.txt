@@ -5,3 +5,4 @@ numpy
 Pillow
 requests
 tqdm
+tf-slim
