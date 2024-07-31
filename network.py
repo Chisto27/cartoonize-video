@@ -6,7 +6,7 @@ Source code for 'Learning to Cartoonize Using White-Box Cartoon Representations'
 import layers
 import tensorflow as tf
 import numpy as np
-import tensorflow.contrib.slim as slim
+import tf_slim as slim  # Updated import
 
 from tqdm import tqdm
 
@@ -139,11 +139,11 @@ def disc_ln(x, channel=32, is_training=True, name='discriminator', patch=True, r
 
         for idx in range(3):
             x = slim.convolution2d(x, channel * 2 ** idx, [3, 3], stride=2, activation_fn=None)
-            x = tf.contrib.layers.layer_norm(x)
+            x = slim.layer_norm(x)  # Updated to tf_slim.layer_norm
             x = tf.nn.leaky_relu(x)
 
             x = slim.convolution2d(x, channel * 2 ** idx, [3, 3], activation_fn=None)
-            x = tf.contrib.layers.layer_norm(x)
+            x = slim.layer_norm(x)  # Updated to tf_slim.layer_norm
             x = tf.nn.leaky_relu(x)
 
         if patch == True:
@@ -157,4 +157,3 @@ def disc_ln(x, channel=32, is_training=True, name='discriminator', patch=True, r
 
 if __name__ == '__main__':
     pass
-
