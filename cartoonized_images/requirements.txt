@@ -1,0 +1,7 @@
+streamlit
+tensorflow==1.15.0
+opencv-python-headless
+numpy
+Pillow
+requests
+tqdm
